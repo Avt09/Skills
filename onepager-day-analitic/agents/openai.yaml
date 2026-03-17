@@ -1,0 +1,5 @@
+interface:
+  display_name: "onepager-day-analitic"
+  short_description: "One-page PDF from daily market JSON"
+  default_prompt: "Use $onepager-day-analitic to transform market_day_analitic.json into a one-page PDF named day_presentation.pdf with bar charts for top gainers and top losers."
+
