@@ -1,0 +1,37 @@
+{
+  "skill_name": "market_day_analitic",
+  "market": "MOEX",
+  "session_date": "YYYY-MM-DD",
+  "calendar_reference_date": "YYYY-MM-DD",
+  "used_latest_completed_session": true,
+  "overview": "Short overview of the previous trading session.",
+  "liquidity_metric": {
+    "name": "turnover_rub",
+    "note": "Use volume only if turnover is unavailable."
+  },
+  "top_gainers": [
+    {
+      "ticker": "TICKER",
+      "company": "Company name",
+      "change_pct": 0.0,
+      "liquidity_value": 0.0,
+      "commentary_note": "Short explanation if available."
+    }
+  ],
+  "top_losers": [
+    {
+      "ticker": "TICKER",
+      "company": "Company name",
+      "change_pct": 0.0,
+      "liquidity_value": 0.0,
+      "commentary_note": "Short explanation if available."
+    }
+  ],
+  "sources": {
+    "moex": [],
+    "bcs_express": [],
+    "alfa_capital": [],
+    "finam": [],
+    "aton": []
+  }
+}

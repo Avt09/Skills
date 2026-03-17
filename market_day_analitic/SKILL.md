@@ -1,9 +1,9 @@
 ---
-name: market-analitic
-description: Analyze the Russian stock market for the previous trading day on the Moscow Exchange and produce a short market overview with the 5 most liquid gainers and 5 most liquid losers. Use when the user asks for a review of yesterday's MOEX trading session, a short Russian equity market summary, or a leaderboard of top risers and decliners with fresh data, an exact analysis date, and source links. Use MOEX as the primary market data source and BCS Express, Alfa Capital, Finam, and Aton for analyst commentary and context. Trigger on explicit requests for $market-analitic as well as Russian requests such as "сделай обзор рынка РФ за вчера", "проведи анализ рынка ценных бумаг России за вчера", "разбери торги на Мосбирже за вчера", "покажи лидеров роста и падения на Мосбирже", or similar phrasing about the previous MOEX trading day.
+name: market-day-analitic
+description: Analyze the Russian stock market for the previous trading day on the Moscow Exchange and produce a short market overview with the 5 most liquid gainers and 5 most liquid losers. Use when the user asks for a review of yesterday's MOEX trading session, a short Russian equity market summary, or a leaderboard of top risers and decliners with fresh data, an exact analysis date, source links, and a JSON result file. Use MOEX as the primary market data source and BCS Express, Alfa Capital, Finam, and Aton for analyst commentary and context. Trigger on explicit requests for $market-day-analitic and similar requests about the previous MOEX trading day.
 ---
 
-# Moex Yesterday Review
+# Market Day Analitic
 
 ## Overview
 
@@ -11,11 +11,11 @@ Produce a short market review for the previous trading day on the Moscow Exchang
 
 ## Example User Requests
 
-- Сделай обзор рынка РФ за вчера.
-- Проведи анализ рынка ценных бумаг России за вчерашний день.
-- Разбери торги на Мосбирже за вчера.
-- Покажи 5 лидеров роста и 5 лидеров падения среди ликвидных бумаг.
-- Подготовь короткий обзор российского рынка акций за прошлую торговую сессию.
+- Use $market-day-analitic and prepare a short review for yesterday's MOEX session.
+- Analyze the Russian stock market for the previous trading day.
+- Show 5 gainers and 5 losers among the most liquid MOEX shares.
+- Prepare a short MOEX market summary with source links.
+- Save the result as JSON.
 
 ## Required Outcome
 
@@ -26,6 +26,7 @@ Always deliver:
 3. The 5 most liquid gainers for that session.
 4. The 5 most liquid losers for that session.
 5. Source links for all data and commentary used.
+6. A JSON file named `market_day_analitic.json`.
 
 ## Workflow
 
@@ -37,6 +38,7 @@ Always deliver:
 6. From that liquid universe, identify the top 5 gainers and top 5 losers by percentage change for the session.
 7. Read relevant commentary from BCS Express, Alfa Capital, Finam, and Aton only as needed to explain the move.
 8. Write a short overview with facts first and commentary second.
+9. Save the final structured result to `market_day_analitic.json`.
 
 ## Data Rules
 
@@ -84,6 +86,10 @@ Provide the same fields.
 
 List direct links to MOEX and each commentary page actually used.
 
+### JSON file
+
+Write the same result to `market_day_analitic.json` using the schema from `references/market_day_analitic.json`.
+
 ## Writing Rules
 
 - Keep the review short and readable.
@@ -91,6 +97,7 @@ List direct links to MOEX and each commentary page actually used.
 - Separate facts from interpretation.
 - Do not overquote sources.
 - If commentary conflicts across sources, say that analysts differ rather than collapsing the disagreement into a false certainty.
+- Keep the JSON keys stable across runs.
 
 ## Edge Cases
 
@@ -102,3 +109,4 @@ List direct links to MOEX and each commentary page actually used.
 
 - Use `references/source-checklist.md` for source handling and verification.
 - Use `references/brief-template.md` for the response shape.
+- Use `references/market_day_analitic.json` as the JSON template.

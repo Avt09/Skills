@@ -1,4 +1,0 @@
-interface:
-  display_name: "Market Analitic"
-  short_description: "Short MOEX market review for yesterday in Russian"
-  default_prompt: "Use $market-analitic to prepare a short Russian-language review of the previous MOEX trading session with 5 liquid gainers, 5 liquid losers, the exact date, and source links."

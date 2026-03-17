@@ -1,0 +1,4 @@
+interface:
+  display_name: "market_day_analitic"
+  short_description: "Short MOEX market review with JSON output"
+  default_prompt: "Use $market-day-analitic to prepare a short Russian-language review of the previous MOEX trading session with 5 liquid gainers, 5 liquid losers, the exact date, source links, and a market_day_analitic.json output file."
